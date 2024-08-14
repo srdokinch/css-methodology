@@ -1,0 +1,13 @@
+@use 'mixin';
+
+.item {
+  width: 100%;
+
+  @include media(md) {
+    width: 50%;
+  }
+
+  @include media(lg) {
+    width: 33.333%;
+  }
+}

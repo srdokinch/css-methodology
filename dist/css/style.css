@@ -1,0 +1,10 @@
+@media screen and (min-width: 796px) {
+  body {
+    background-color: grey;
+  }
+}
+@media screen and (max-width: 420px) {
+  body {
+    background-color: pink;
+  }
+}
