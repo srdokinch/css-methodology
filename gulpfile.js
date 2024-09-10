@@ -40,7 +40,7 @@ function copyJavascript() {
 exports.default = series(cssSass, copyImages, copyJavascript);
 
 exports.watch = function() {
-  watch('src/scss/*.scss', series(cssSass));
+  watch('src/scss/**/*.scss', series(cssSass));
   watch(['src/img/**/*'], series(copyImages));
   watch(['src/js/**/*'], series(copyJavascript));
 };

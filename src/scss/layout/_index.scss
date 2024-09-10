@@ -1,0 +1,19 @@
+@use "header";
+@use "footer";
+@use "../global" as *;
+
+// body {
+//   @include mq("pc") {
+//     background-color: pink;
+//   }
+//   @include mq("sp") {
+//     background-color: skyblue;
+//   }
+// }
+
+// .eng {
+//   font-family: $font-en;
+// }
+// .jpn {
+//   font-family: $font-jp;
+// }
