@@ -3,7 +3,7 @@
 /*----------------------------------------------------------*/
 /*----------------------------------------------------------*/
 *, *::before, *::after {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -53,4 +53,14 @@ textarea:not([rows]) {
 
 :target {
   scroll-margin-block: 5ex;
+}
+
+.font-en {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.tabs-nav li:hover {
+  background-color: #ffdfdf;
+  border: 1px solid #999;
+  border-bottom: none;
 }

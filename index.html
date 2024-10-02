@@ -11,10 +11,94 @@
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="dist/js/script.js" type="text/javascript"></script>
+  <script src="dist/js/jquery.tab.js" type="text/javascript"></script>
 </head>
 <body>
-  <div class="test">テスト</div>
-  <p class="eng">English→英語フォントです</p>
-  <p class="jpn">日本語→Eng font</p>
+  <header>
+    <h1 class="header__logo"><img src="dist/img/logo.svg" alt="ENGBODY"></h1>
+    <a class="header__btn" href="#">無料カウンセリングを受ける</a>
+  </header>
+  <main>
+    <div class="mv">
+      <div class="mv__heading">
+        <h2 class="mv__ttl font-en">Body Make<br>&English</h2>
+        <p class="mv__sub-txt">英会話＆パーソナルトレーニングジム</p>
+        <a href="#" class="mv__btn">無料カウンセリングを受ける</a>
+      </div>
+      <div class="mv__img"><img src="dist/img/bg_mv.jpg" alt=""></div>
+    </div>
+    <section class="concept">
+      <h2 class="concept__ttl">YOU CAN DO IT!</h2>
+      <p class="concept__sub-txt">英語とトレーニングの蜜月関係</p>
+      <p class="concept__desc">
+        <span class="concept__desc--br">Hey, guys! 英語を話している時ってなんだかテンションが上りませんか？</span>
+        <span class="concept__desc--br">バイブス高めでトレーニングをすれば、あなたのベストなパフォーマンスが出せます！</span>
+        <span class="concept__desc--br">英語と運動に自信がなくたってOK！</span>
+        <span class="concept__desc--br">優しくて盛り上げな上手な外国人トレーナーがしっかりサポートします。</span>
+        <span class="concept__desc--br">さぁ、ENGBODYで英語でパーソナルトレーニングを受けましょう。</span>
+      </p>
+    </section>
+    <section class="about">
+      <div class="about__item">
+        <img class="about__img" src="dist/img/about-training.jpg" alt="">
+        <div class="about__content">
+          <p class="about__ttl--eng">Training</p>
+          <h2 class="about__ttl--jp">セッションは全て英語。<br>LAさながらの環境</h2>
+          <p class="about__desc">
+            ネイティブスピーカーによる50分のパーソナルトレーニングはすべて英語です！アップテンポの洋楽が流れる空間でテンション高めのトレーナーが英語であなたのトレーニングを盛り上げてくれます。ダイエットでよく使う英語をまとめたオリジナルテキストもあるのでスピーキング学習もバッチリです！英語に苦手意識がある方は日本人トレーナーも選べますのでご安心してください。
+          </p>
+        </div>
+      </div>
+      <div class="about__item">
+        <div class="about__content">
+          <p class="about__ttl--eng">Food</p>
+          <h2 class="about__ttl--jp">低糖質レストランを完備！<br>美味しく食べてダイエット</h2>
+          <p class="about__desc">
+            食事制限って大変ですよね......。でも大丈夫！ENGBODY館内には低糖質レストラン『LCR』を完備しています。Low carb（低糖質）なのにとっても美味しい味に驚くはずです！メニューも豊富で飽きさせません。美味しく食べてしっかり痩せる！しかも英語力もアップ！それがENGBODYなのです。
+          </p>
+        </div>
+        <img class="about__img" src="dist/img/about-food.jpg" alt="">
+      </div>
+      <p class="about__btn"><a href="#">無料カウンセリングを受ける</a></p>
+    </section>
+    <section class="trainer">
+      <div class="trainer__head">
+        <h2 class="trainer__ttl--en">Our Trainer</h2>
+        <p class="trainer__ttl-jp">トレーナー</p>
+      </div>
+      <div class="trainer__body">
+        <div id="tabs" class="tab">
+          <ul class="tab__heads">
+            <li class="tab__head--active">トレーナー</li>
+            <li class="tab__head">スタッフ</li>
+          </ul>
+          <div class="tab__body">
+            <div class="tab__item">
+              <img class="tab__img" src="dist/img/trainer01.jpg" alt="">
+              <div class="tab__txt">こんにちは！英語で楽しくトレーニングしましょう。日本語が話せますのでご安心ください。</div>
+            </div>
+            <div class="tab__item">
+              <img class="tab__img" src="dist/img/trainer02.jpg" alt="">
+              <div class="tab__txt">Hello! 筋肉をつけすぎずしなやかな体を作ることが得意です！美しさを磨いていきましょう。</div>
+            </div>
+            <div class="tab__item">
+              <img class="tab__img" src="dist/img/trainer03.jpg" alt="">
+              <div class="tab__txt">Hi, 負荷や強度の高いトレーニングがしたいならおまかせてください！どんなご要望もできるかぎり叶えますよ！</div>
+            </div>
+          </div>
+          <div class="tab__body">
+            <div class="tab__item">
+              <img class="tab__img" src="dist/img/staff01.jpg" alt="">
+              <div class="tab__txt">ENBODYは明るくてとっても楽しいジムです！みなさんのセッションが楽しくなるようしっかりサポートいたします。</div>
+            </div>
+            <div class="tab__item">
+              <img class="tab__img" src="dist/img/staff02.jpg" alt="">
+              <div class="tab__txt">Hello! Hi, please let me know anytime if you have any questions. We will fully support you!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

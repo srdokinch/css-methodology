@@ -17,3 +17,13 @@
 // .jpn {
 //   font-family: $font-jp;
 // }
+
+.font-en {
+  font-family: $font-en;
+}
+
+.tabs-nav li:hover {
+  background-color: #ffdfdf;
+  border: 1px solid #999;
+  border-bottom: none;
+}

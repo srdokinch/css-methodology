@@ -38,12 +38,14 @@ CSSの設計をいう面で言うとフォルダ構成なども設計の一部�
 ---
 
 ## 諸々頑張ってみた結果...
-@useと@forward勉強したりしてもっとこうしたいとかフォルダ構成もっと考えたいっていう気持ちがあるけど一旦その気持ちを抑えて次に進むことに・・・
+@useと@forward勉強したりしてもっとこうしたいとかフォルダ構成もっと考えたいっていう気持ちがあるけどその気持ちを抑えて次に進むことに・・・
 フォルダ構成は一旦以下のようにFLOCSSみたいだけど完全にはFLOCSSではない気持ち悪い感じの構成で行く
 
 ---
 
 ## BEMについての基礎知識
+まずはBEMのクックスタートのページを見てみることに
+https://en.bem.info/methodology/quick-start/
 
 ### そもそもBEMってなに？🧐
 BEMとは **B**lock **E**lement **M**odifier の頭文字をとったもの。
@@ -58,16 +60,82 @@ Block__Element-Modifierとするのが一般的だが、ここはプロジェク
 
 #### Block
 - Blockは必須要素であり機能的に独立しておりあらゆる場所で再利用が可能なものを示す
-Block
+- Blockの中にBlockをネストしてもOK
+以下はheaderのblockの中にlogoとsearch-formがblockとして存在しているサンプルコード。
+```
+<header class="header">
+    <div class="logo"></div>
+    <form class="search-form"></form>
+</header>
+```
 
 #### Element
 - Elementを使用する時はBlock__elementとする。Elementは必須要素ではないのでBlock単体のコードもOK
+以下はsearch-formのblock内にsearch-form__inputとsearch-form__buttonのelementが存在するパターンのサンプルコード
+```
+<!-- `search-form` block -->
+<form class="search-form">
+    <!-- `input` element in the `search-form` block -->
+    <input class="search-form__input">
+
+    <!-- `button` element in the `search-form` block -->
+    <button class="search-form__button">Search</button>
+</form>
+```
 
 #### Modifier
 - Modifierは見た目や状態を表すもの。BlockやElementが1つに対してModifierは複数付与することができる。
   - Block-Modifierと記載してもOK（Elementがない場合）
 
+---
+
+#### ネストについて
+
+```
+<!--
+    block__elementとなっているのでこれは正しいネストのサンプル。
+-->
+<form class="search-form">
+    <div class="search-form__content">
+        <input class="search-form__input">
+
+        <button class="search-form__button">Search</button>
+    </div>
+</form>
+
+<!--
+   こっちはblock__elementとなっていないのでNGなサンプル。
+-->
+<form class="search-form">
+    <div class="search-form__content">
+        <!-- ここは `search-form__input` か `search-form__content-input` とするべき -->
+        <input class="search-form__content__input">
+
+        <!-- ここは `search-form__button` か `search-form__content-button` とするべき -->
+        <button class="search-form__content__button">Search</button>
+    </div>
+```
+
+当たり前かもしれないが、block内にelementが来るため以下のようにblock以外の場所でblock__elementのようには使用できない。
+```
+<!-- `search-form` block -->
+<form class="search-form">
+</form>
+
+<!-- `input` element in the `search-form` block -->
+<input class="search-form__input">
+
+<!-- `button` element in the `search-form` block-->
+<button class="search-form__button">Search</button>
+```
+
+---
+
 ## BlockとElementの合わせ技のmix!?
+上記までの例は1つのHTMLタグに対してblockかelementどちらかになっていたが、以下のようにBlock（search-form）でもありElement（header__search-from）でもあると言う状態にすることができる。
+
+こうすることで「Blockとして指定したいスタイル」と「Elementで指定したいスタイル」が分離して書くことができ組み合わせて使用できる。
+これにより再利用性が高まる（らしい）
 ```
 <!-- `header` block -->
 <div class="header">
@@ -77,4 +145,15 @@ Block
     -->
     <div class="search-form header__search-form"></div>
 </div>
+```
+cssをこのように指定するとBlockで使用したいものはborderなどを付与しあくまで他の場所でも再利用できるようなスタイルをあて、Elementとしてmarginを付与しておりそのページで使用される場合のレイアウトなどを調節できる。
+```
+.search-form {
+    border:  1px solid black;
+    padding: 10px;
+}
+
+.header__search-form {
+    margin-top: 30px;
+}
 ```
