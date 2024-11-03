@@ -8,13 +8,15 @@
   <link rel="stylesheet" href="dist/css/style.css" type="text/css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="dist/js/script.js" type="text/javascript"></script>
   <script src="dist/js/jquery.tab.js" type="text/javascript"></script>
 </head>
 <body>
-  <header>
+  <header class="header">
     <h1 class="header__logo"><img src="dist/img/logo.svg" alt="ENGBODY"></h1>
     <a class="header__btn" href="#">無料カウンセリングを受ける</a>
   </header>
@@ -72,7 +74,7 @@
             <li class="tab__head--active">トレーナー</li>
             <li class="tab__head">スタッフ</li>
           </ul>
-          <div class="tab__body">
+          <div class="tab__body--trainer">
             <div class="tab__item">
               <img class="tab__img" src="dist/img/trainer01.jpg" alt="">
               <div class="tab__txt">こんにちは！英語で楽しくトレーニングしましょう。日本語が話せますのでご安心ください。</div>
@@ -86,7 +88,7 @@
               <div class="tab__txt">Hi, 負荷や強度の高いトレーニングがしたいならおまかせてください！どんなご要望もできるかぎり叶えますよ！</div>
             </div>
           </div>
-          <div class="tab__body">
+          <div class="tab__body--staff">
             <div class="tab__item">
               <img class="tab__img" src="dist/img/staff01.jpg" alt="">
               <div class="tab__txt">ENBODYは明るくてとっても楽しいジムです！みなさんのセッションが楽しくなるようしっかりサポートいたします。</div>
@@ -99,6 +101,115 @@
         </div>
       </div>
     </section>
+    <section class="studio">
+      <div class="studio__head">
+        <h2 class="trainer__ttl--en">Studio</h2>
+        <p class="trainer__ttl-jp">スタジオ</p>
+      </div>
+      <div class="studio__body">
+        <div class="swiper-wrap">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="dist/img/studio01.jpg" alt="スタジオ1"></div>
+              <div class="swiper-slide"><img src="dist/img/studio02.jpg" alt="スタジオ2"></div>
+              <div class="swiper-slide"><img src="dist/img/studio03.jpg" alt="スタジオ3"></div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </section>
+    <section class="price">
+      <div class="price__head">
+        <h2 class="peice__ttl--en">Price</h2>
+        <p class="peice__ttl-jp">料金</p>
+      </div>
+      <div class="price__body">
+        <ul class="price__list">
+          <li class="price__box">
+            <div class="plan">
+              <h3 class="plan__course">週1コース</h3>
+              <p class="plan__price">¥20,000<br>(入会金 ¥10000)</p>
+              <ul class="plan__features">
+                <li class="plan__feature">レンタル<br><span class="plan__feature--bold">タオル、ウェア、プロテイン無料</span></li>
+                <li class="plan__feature">レストラン<br><span class="plan__feature--bold">使用不可</span></li>
+                <li class="plan__feature">食事指導<br><span class="plan__feature--bold">なし</span></li>
+              </ul>
+            </div>
+          </li>
+          <li class="price__box">
+            <div class="plan">
+              <p class="plan__course--recommend">オススメ！</p>
+              <h3 class="plan__course">週2コース</h3>
+              <p class="plan__price">¥40,000<br>(入会金 ¥10000)</p>
+              <ul class="plan__features">
+                <li class="plan__feature">レンタル<br><span class="plan__feature--bold">タオル、ウェア、プロテイン無料</span></li>
+                <li class="plan__feature">レストラン<br><span class="plan__feature--bold">使用不可</span></li>
+                <li class="plan__feature">食事指導<br><span class="plan__feature--bold">なし</span></li>
+              </ul>
+            </div>
+          </li>
+          <li class="price__box">
+            <div class="plan">
+              <h3 class="plan__course">無制限</h3>
+              <p class="plan__price">¥70,000<br>(入会金 ¥10000)</p>
+              <ul class="plan__features">
+                <li class="plan__feature">レンタル<br><span class="plan__feature--bold">タオル、ウェア、プロテイン無料</span></li>
+                <li class="plan__feature">レストラン<br><span class="plan__feature--bold">使用不可</span></li>
+                <li class="plan__feature">食事指導<br><span class="plan__feature--bold">あり</span></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="faq">
+      <div class="studio__head">
+        <h2 class="faq__ttl--en">FAQ</h2>
+        <p class="faq__ttl-jp">よくあるご質問</p>
+      </div>
+      <div class="faq__body">
+        <div class="accordion">
+          <div class="accordion__item">
+            <div class="accordion__head">
+              <p class="accordion__txt"><span class="accordion__label">Q</span>見学や体験は可能ですか？</p>
+            </div>
+            <div class="accordion__body">
+              <p class="accordion__txt"><span class="accordion__label">A</span>無料カウンセリングの際に見学が可能です。フォームに見学・体験機能の欄がございますので内容をご確認しチェックを入れてください。</p>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <div class="accordion__head">
+              <p class="accordion__txt"><span class="accordion__label">Q</span>用意するものは何がありますか？</p>
+            </div>
+            <div class="accordion__body">
+              <p class="accordion__txt"><span class="accordion__label">A</span>シューズをご持参ください。ウェアとタオルは無料でレンタルが可能です。</p>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <div class="accordion__head">
+              <p class="accordion__txt"><span class="accordion__label">Q</span>シャワールームはありますか？</p>
+            </div>
+            <div class="accordion__body">
+              <p class="accordion__txt"><span class="accordion__label">A</span>5つのシャワールームがございます。ボディソープ・シャンプー・リンスなどのアメニティやドライヤーもご用意しております。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact">
+      <p class="contact__thumbnail">
+        <img src="dist/img/pc_cta.jpg" alt="ジムのメンバーとトレーナー" class="contact__img">
+      </p>
+      <h2 class="contact__ttl">Come join us!! 😊</h2>
+      <a class="contact__btn">無料カウンセリングを受ける</a>
+    </section>
   </main>
+  <footer class="footer">
+    <p class="footer__logo"><img src="dist/img/logo-white.svg" alt="ENGBODY" class="footer__img"></p>
+    <p class="footer__pagetop"><a href="#" class="pagetop"><img src="dist/img/pagetop_btn.png" alt="ページの先頭へ戻る" class="pagetop__img"></p></a>
+  </footer>
 </body>
 </html>

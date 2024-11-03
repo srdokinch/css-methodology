@@ -27,3 +27,49 @@
   border: 1px solid #999;
   border-bottom: none;
 }
+
+.swiper-wrap {
+  position: relative;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: -30px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.swiper-button-prev {
+  left: -20px;
+}
+
+.swiper-button-next {
+  right: -20px;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-family: "Material Icons Round";
+  font-size: 24px;
+  color: var(--main-color);
+}
+
+.swiper-button-prev:after {
+  content: "navigate_before";
+}
+
+.swiper-button-next:after {
+  content: "navigate_next";
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--main-color);
+}

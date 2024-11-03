@@ -157,3 +157,10 @@ cssをこのように指定するとBlockで使用したいものはborderなど
     margin-top: 30px;
 }
 ```
+
+---
+
+## 気をつけること
+**Blockは大きくなりすぎないように**
+
+**Block__Elementの形が複数回出てくる時はBlockにできる**
