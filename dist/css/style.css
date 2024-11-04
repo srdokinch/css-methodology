@@ -1,7 +1,20 @@
+@charset "UTF-8";
 /*----------------------------------------------------------*/
 /*----------------------------------------------------------*/
 /*----------------------------------------------------------*/
 /*----------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  .view-pc {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .view-sp {
+    display: none !important;
+  }
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -53,6 +66,94 @@ textarea:not([rows]) {
 
 :target {
   scroll-margin-block: 5ex;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.6s;
+  padding: 20px 35px;
+}
+@media screen and (min-width: 1024px) {
+  .header__img {
+    width: 180px;
+  }
+}
+.header__btn {
+  font-size: 0.9375rem;
+  background-color: #EB51C2;
+  border-radius: 100px;
+  color: #fff;
+  display: none;
+  font-weight: bold;
+  padding: 12px 28px;
+  transition: 0.6s;
+  text-decoration: none;
+}
+@media screen and (min-width: 1024px) {
+  .header__btn:hover {
+    opacity: 0.85;
+  }
+}
+.header.js-header {
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.header.js-header .header__btn {
+  display: block;
+}
+
+.engFont {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.jpn {
+  font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+.mv {
+  display: flex;
+  min-height: 680px;
+  position: relative;
+}
+.mv__ttl {
+  font-size: 5.625rem;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 1;
+}
+.mv__ttl--first, .mv__ttl--second {
+  background-color: #fff;
+}
+.mv__ttl--pink {
+  color: #EB51C2;
+}
+.mv__btn {
+  font-size: 1.25rem;
+  background-color: #EB51C2;
+  border-radius: 100px;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 28px;
+  transition: 0.6s;
+  text-decoration: none;
+}
+@media screen and (min-width: 1024px) {
+  .mv__btn:hover {
+    opacity: 0.85;
+  }
+}
+.mv__img {
+  position: absolute;
+  right: 0;
+  z-index: -10;
+}
+.mv__img--01 {
+  border-radius: 0 0 0 90px;
 }
 
 .font-en {

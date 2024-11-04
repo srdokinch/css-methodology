@@ -1,0 +1,12 @@
+@use "../global" as *;
+
+.view-pc {
+  @include mq("sp") {
+    display: none!important;
+  }
+}
+.view-sp {
+  @include mq("pc") {
+    display: none!important;
+  }
+}

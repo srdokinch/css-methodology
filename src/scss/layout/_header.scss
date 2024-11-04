@@ -1,0 +1,41 @@
+@use "../global" as *;
+
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  transition: .6s;
+  padding: 20px 35px;
+  &__img {
+    @include mq("pc") {
+      width: 180px;
+    }
+  }
+  &__btn {
+    font-size: rem(15);
+    background-color: #EB51C2;
+    border-radius: 100px;
+    color: #fff;
+    display: none;
+    font-weight: bold;
+    padding: 12px 28px;
+    transition: .6s;
+    text-decoration: none;
+    @include mq("pc") {
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+  }
+  &.js-header {
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 5%);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    .header__btn {
+      display: block;
+    }
+  }
+}
