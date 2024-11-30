@@ -23,47 +23,6 @@ var tabs_new = function( tabs_id, opts ) {
   {
     settings = $.extend( {}, defaults, opts );
 
-    // add default style only once to head
-    if( $( 'head #tabs-styles-default').length == 0 ) {
-
-      // little hack: by default - use background-color of body
-      var bodyBackgroundColor = $('body').css('backgroundColor');
-
-      // _debug( 'body backgroundColor:' + bodyBackgroundColor + " : " + typeof( bodyBackgroundColor ));
-      if( bodyBackgroundColor === 'rgba(0, 0, 0, 0)' )
-        bodyBackgroundColor = 'white';   // standard white transparent background? use just white
-
-      // todo/fix: possible in css - non transparent background-color using default ??
-      //  -- setting opacity: 1.0 tried but was NOT working; anything else to try?
-        
-      $( 'head' ).append( "<style id='tabs-styles-default'>\n"+
-       ".tabs-nav  { \n"+
-       "  margin: 0; \n"+
-       "  padding: 0; \n"+
-       "  list-style-type: none; \n"+
-       "  border-bottom: 1px solid #999; \n"+
-       "} \n"+
-       ".tabs-nav li { \n"+
-       "  display: inline-block; \n"+
-       "  margin: 0 0 0 5px; \n"+            // top right bottom left
-       "  padding: 5px 15px 3px 15px; \n"+   // top right bottom left
-       "  border: 1px solid transparent; \n"+
-       "  border-bottom: none;  \n"+
-       "  cursor: pointer; \n"+
-       "  background-color: "+ bodyBackgroundColor +"; \n"+
-       "} \n"+
-       ".tabs-nav li.selected { \n"+
-       "  padding-bottom: 4px;  \n"+            // note: for bottom use +1px (3px+1px=4px) to overwrite border for "tab" selected effect (1/2)
-       "  margin-bottom: -1px;  \n"+            // note: for bottom use -1px (0px-1px=-1px) to overwrite border for "tab" selected effect (2/2)
-       "  border: 1px solid #999; \n"+
-       "  border-bottom: none;  \n"+
-       "} \n"+
-       ".tabs-panel { \n"+
-       "  padding: 10px; \n"+
-       "} \n"+
-       "</style>" );
-    }
-
     $tabs         = $( tabs_id );
     $tabsNav      = $tabs.children( 'ul' );    // note: ul must be child of tabs div
     $tabsNavItems = $tabsNav.children( 'li' );  // note: li must be child of tabs div > ul
@@ -92,11 +51,11 @@ var tabs_new = function( tabs_id, opts ) {
   
   function _select( index ) {
     // step 1) reset selected tab (if present)
-    $tabsNavItems.filter( '.selected' ).removeClass( 'selected' );
+    $tabsNavItems.filter( '.tab__head--active' ).removeClass( 'tab__head--active' );
     $tabsPanels.filter( '.selected' ).removeClass( 'selected' ).hide();
 
     // step 2) set new selected tab   
-    $tabsNavItems.eq( index ).addClass( 'selected' );
+    $tabsNavItems.eq( index ).addClass( 'tab__head--active' );
     $tabsPanels.eq( index ).addClass( 'selected' ).show(); 
   }
   

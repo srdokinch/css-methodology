@@ -7,6 +7,8 @@
   justify-content: space-between;
   transition: .6s;
   padding: 20px 35px;
+  position: relative;
+  z-index: 100;
   &__img {
     @include mq("pc") {
       width: 180px;

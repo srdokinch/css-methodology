@@ -3,13 +3,10 @@ $(function(){
 
    //Swiperの初期化
    const swiper = new Swiper('.swiper', {
-    // Optional parameters
     loop: true,
-    // If we need pagination
     pagination: {
       el: '.swiper-pagination',
     },
-    // Navigation arrows
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -27,6 +24,21 @@ $(function(){
         $(".header").removeClass("js-header");
       }
     });
+  });
+
+  //スクロールエフェクト
+  function fadeUpEffect() {
+		$('.fadeup--before').each(function () {
+			const position = $(this).offset().top + 200;
+			const scroll = $(window).scrollTop();
+			const windowHeight = $(window).height();
+			if (scroll >= position - windowHeight) {
+				$(this).addClass('fadeup');
+			}
+		});
+  }
+  $(window).scroll(function() {
+		fadeUpEffect();
   });
 
 });
