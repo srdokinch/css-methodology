@@ -16,5 +16,5 @@ $breakpoints: (
 }
 
 @function rem($remFz) {
-    @return math.div($remFz, 16) * 1rem;
+  @return math.div($remFz, 16) * 1rem;
 }

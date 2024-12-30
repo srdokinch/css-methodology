@@ -2,7 +2,6 @@
 @use "footer";
 @use "../global" as *;
 
-
 .eng-font {
   font-family: $font-en;
 }
@@ -33,7 +32,7 @@
 
 // MV
 .mv {
-  margin: -64px;
+  margin-top: -64px;
   min-height: 680px;
   position: relative;
   z-index: 10;
@@ -143,6 +142,7 @@
   }
   &__img {
     max-width: 950px;
+    width: 100%;
   }
   &__content {
     background-color: #fff;
@@ -211,7 +211,7 @@
   }
   &__head, &__body {
     margin: 0 auto;
-    width: 1110px;
+    max-width: 1110px;
   }
   &__ttl {
     &--en {
@@ -271,7 +271,7 @@
 .studio {
   &__inner {
     margin: 60px auto 0;
-    width: 1100px;
+    max-width: 1100px;
   }
   &__ttl {
     &--en {
@@ -285,28 +285,211 @@
   }
 }
 
+// スライダー（splide）
+.splide {
+  &__img {
+    height: 100%;
+    width: 100%;
+  }
+  &__arrow {
+    &--prev {
+      background: url(../../../dist/img/prev_btn.jpg)!important;
+      left: -2rem!important;
+      height: 60px!important;
+      opacity: 1!important;
+      width: 60px!important;
+    }
+    &--next {
+      background: url(../../../dist/img/next_btn.png)!important;
+      height: 60px!important;
+      opacity: 1!important;
+      right: -2rem!important;
+      width: 60px!important;
+    }
+    svg {
+      display: none;
+    }
+  }
+  &__pagination {
+    bottom: inherit!important;
+    position: relative!important;
+    top: 15px;
+    &__page.is-active {
+      background: $accent-colour!important;
+      transform: scale(1)!important;
+    }
+  }
+}
 
-.swiper-wrap {
-  margin-top: 30px;
-  position: relative;
+// 料金
+.price {
+  margin-top: 60px;
+  &__wave {
+    &--top {
+      transform: translateY(6px);
+    }
+  }
+  &__inner {
+    background-color: $accent-colour;
+    padding: 42px 0;
+  }
+  &__head, &__body {
+    margin: 0 auto;
+    max-width: 1100px;
+  }
+  &__ttl {
+    &--en {
+      color: #fff;
+      font-size: rem(64);
+    }
+    &--jp {
+      color: #fff;
+      font-size: rem(20);
+      margin-top: 20px;
+    }
+  }
+  &__list {
+    display: flex;
+    gap: 0 15px;
+    margin-top: 30px;
+  }
+  &__box {
+    background-color: #fff;
+    border-radius: 10px;
+    flex: 1;
+    padding: 40px 20px 0;
+  }
 }
-.swiper-button-prev,
-.swiper-button-next {
-  border-radius: 50%;
-  height: 60px!important;
-  width: 60px!important;
+.plan {
+  text-align: center;
+  &__course {
+    color: $accent-colour;
+    font-size: rem(26);
+    &--recommend {
+      border: 2px solid $accent-colour;
+      border-radius: calc(infinity * 1px);
+      background-color: #fff;
+      color: $accent-colour;
+      font-size: rem(20);
+      font-family: $font-en;
+      font-weight: bold;
+      margin: -60px 0 18px;
+      padding-top: 6px;
+      text-align: center;
+    }
+  }
+  &__price {
+    border-bottom: 1px solid #D9D9D9;
+    font-size: rem(48);
+    font-family: $font-en;
+    line-height: 1.2;
+    padding: 10px 0 20px;
+    &--fee {
+      font-size: rem(16);
+      display: block;
+    }
+  }
+  &__feature {
+    font-size: rem(18);
+    padding: 25px 0;
+    &:not(:last-child) {
+      border-bottom: 1px solid #D9D9D9;
+    }
+    &--bold {
+      font-weight: bold;
+      font-size: rem(16);
+    }
+  }
 }
-.swiper-button-prev {
-  background: url(../../../dist/img/prev_btn.jpg);
-  left: -34px!important;
+
+// FAQ
+.faq {
+  &__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  &__ttl {
+    &--en {
+      font-size: rem(64);
+      font-weight: normal;
+    }
+    &--jp {
+      font-size: rem(20);
+      font-weight: bold;
+      color: $accent-colour;
+    }
+  }
 }
-.swiper-button-next {
-  background: url(../../../dist/img/next_btn.png);
-  right: -34px!important;
+//アコーディオン
+.accordion {
+  margin-top: 10px;
+  &__item {
+    border-bottom: 1px solid #ccc;
+    padding: 14px 0;
+  }
+  &__head {
+    cursor: pointer;
+    position: relative;
+    &::after {
+      color: $accent-colour;
+	    content: "\e5e1";
+      font-family: "Material Icons";
+      font-size: 12px;
+      position: absolute;
+      right: 6px;
+      rotate: 90deg;
+      top: 14px;
+    }
+    &--active {
+      &::after {
+        rotate: -90deg;
+      }
+    }
+  }
+  &__label {
+    font-size: rem(26);
+    font-weight: bold;
+    font-family: $font-en;
+    color: $accent-colour;
+    margin-right: 15px;
+  }
+  &__body {
+    display: none;
+  }
 }
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
-  bottom: -30px!important;
-}
-.swiper-pagination-bullet-active {
-  background: $accent-colour!important;
+
+// Contact
+.contact {
+  &__inner {
+    background-color: $accent-colour;
+    margin-top: 70px;
+    padding-bottom: 50px;
+  }
+  &__thumbnail {
+    &--01 {
+      height: auto;
+      width: 100%;
+    }
+  }
+  &__ttl {
+    color: #fff;
+    margin-top: 50px;
+    font-family: $font-en;
+    font-weight: normal;
+    font-size: rem(64);
+    text-align: center;
+  }
+  &__btn {
+    background-color: #fff;
+    border-radius: calc(infinity * 1px);
+    color: $accent-colour;
+    font-size: rem(20);
+    font-weight: bold;
+    display: block;
+    margin: 15px auto 0;
+    padding: 25px 50px;
+    text-align: center;
+    text-decoration: none;
+    width: fit-content;
+  }
 }

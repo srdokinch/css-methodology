@@ -1,0 +1,19 @@
+.footer {
+  &__inner {
+    background-color: #000;
+    position: relative;
+  }
+  &__img {
+    height: auto;
+    margin: 0 auto;
+    padding: 100px 0;
+    width: 180px;
+  }
+}
+.pagetop {
+  bottom: 66px;
+  height: 80px;
+  position: absolute;
+  right: 20px;
+  width: 80px;
+}

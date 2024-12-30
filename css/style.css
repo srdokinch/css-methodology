@@ -49,7 +49,8 @@ h1, h2, h3, h4 {
 }
 
 a:not([class]) {
-  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
   color: currentColor;
 }
 
@@ -228,7 +229,8 @@ ol, ul, menu, summary {
 .mv__img--01 {
   border-radius: 0 0 0 90px;
   height: 680px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: absolute;
   right: 0;
   width: 70%;
@@ -326,6 +328,7 @@ ol, ul, menu, summary {
   padding: 25px 50px;
   transition: 0.6s;
   text-decoration: none;
+  width: -moz-fit-content;
   width: fit-content;
 }
 @media screen and (min-width: 1024px) {
@@ -414,35 +417,34 @@ ol, ul, menu, summary {
   color: #EB51C2;
 }
 
-.splide__img {
-  height: 100%;
-  width: 100%;
+.swiper-wrap {
+  margin-top: 30px;
+  position: relative;
 }
-.splide__arrow--prev {
-  background: url(../../../dist/img/prev_btn.jpg) !important;
-  left: -2rem !important;
+
+.swiper-button-prev,
+.swiper-button-next {
+  border-radius: 50%;
   height: 60px !important;
-  opacity: 1 !important;
   width: 60px !important;
 }
-.splide__arrow--next {
-  background: url(../../../dist/img/next_btn.png) !important;
-  height: 60px !important;
-  opacity: 1 !important;
-  right: -2rem !important;
-  width: 60px !important;
+
+.swiper-button-prev {
+  background: url(../../../dist/img/prev_btn.jpg);
+  left: -34px !important;
 }
-.splide__arrow svg {
-  display: none;
+
+.swiper-button-next {
+  background: url(../../../dist/img/next_btn.png);
+  right: -34px !important;
 }
-.splide__pagination {
-  bottom: inherit !important;
-  position: relative !important;
-  top: 15px;
+
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+  bottom: -30px !important;
 }
-.splide__pagination__page.is-active {
+
+.swiper-pagination-bullet-active {
   background: #EB51C2 !important;
-  transform: scale(1) !important;
 }
 
 .price {
@@ -599,5 +601,6 @@ ol, ul, menu, summary {
   padding: 25px 50px;
   text-align: center;
   text-decoration: none;
+  width: -moz-fit-content;
   width: fit-content;
 }
