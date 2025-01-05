@@ -1,6 +1,5 @@
 @use "../global" as *;
 
-
 .header {
   align-items: center;
   display: flex;
@@ -9,6 +8,9 @@
   padding: 20px 35px;
   position: relative;
   z-index: 100;
+  @include mq("sp") {
+    padding: 24px 20px;
+  }
   &__img {
     @include mq("pc") {
       width: 180px;
@@ -29,6 +31,10 @@
         opacity: 0.85;
       }
     }
+    @include mq("sp") {
+      font-size: rem(12);
+      padding: 12px 15px;
+    }
   }
   &.js-header {
     background-color: #fff;
@@ -36,6 +42,9 @@
     position: fixed;
     top: 0;
     width: 100%;
+    @include mq("sp") {
+      padding: 12px 20px;
+    }
     .header__btn {
       display: block;
     }

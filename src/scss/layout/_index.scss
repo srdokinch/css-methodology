@@ -32,21 +32,33 @@
 
 // MV
 .mv {
-  margin-top: -64px;
-  min-height: 680px;
   position: relative;
   z-index: 10;
+  @include mq("pc") {
+    margin-top: -64px;
+    min-height: 680px;
+  }
+  @include mq("sp") {
+    margin-top: -60px;
+  }
   &__content {
     padding-left: 16%;
     position: absolute;
     top: 220px;
     z-index: 10;
+    @include mq("sp") {
+      padding-left: 20px;
+      top: 150px;
+    }
   }
   &__ttl {
     font-size: rem(90);
     font-style: italic;
     font-weight: normal;
     line-height: 1;
+    @include mq("sp") {
+      font-size: rem(42);
+    }
     &--first, &--second {
       background-color: #fff;
     }
@@ -61,6 +73,12 @@
     line-height: 1;
     margin-top: 20px;
     padding: 0 4px;
+    @include mq("sp") {
+      font-size: rem(13);
+      margin-top: 10px;
+      padding: 2px 5px;
+      width: fit-content;
+    }
   }
   &__btn {
     font-size: rem(20);
@@ -78,17 +96,28 @@
         opacity: 0.85;
       }
     }
+    @include mq("sp") {
+      font-size: rem(13);
+      margin-top: 15px;
+      padding: 17px 28px;
+    }
   }
   &__img {
     position: relative;
     &--01 {
-      border-radius: 0 0 0 90px;
-      height: 680px;
       object-fit: cover;
-      position: absolute;
-      right: 0;
-      width: 70%;
-      z-index: -10;
+      @include mq("pc") {
+        border-radius: 0 0 0 90px;
+        height: 680px;
+        position: absolute;
+        right: 0;
+        width: 70%;
+        z-index: -10;
+      }
+      @include mq("sp") {
+        margin-left: calc(100% - 266px);
+        height: 410px;
+      }
     }
   }
 }
@@ -103,18 +132,36 @@
     font-style: italic;
     text-align: center;
     margin-top: 15px;
+    @include mq("sp") {
+      font-size: rem(56);
+      margin-top: -22px;
+    }
   }
   &__sub-ttl {
     font-size: rem(36);
     font-weight: bold;
     padding: 30px 0;
     text-align: center;
+    @include mq("sp") {
+      font-size: rem(16);
+      letter-spacing: .1rem;
+      padding: 0;
+    }
     &--pink {
       color: $accent-colour;
     }
   }
   &__desc {
-    text-align: center;
+    @include mq("pc") {
+      text-align: center;
+    }
+    @include mq("sp") {
+      font-size: rem(15);
+      font-feature-settings: "palt";
+      line-height: 1.8;
+      margin-top: 25px;
+      padding: 0 18px;
+    }
     &--br {
       display: block;
     }
@@ -125,34 +172,58 @@
 .about {
   margin-top: 30px;
   &__box {
-    align-items: flex-end;
-    display: flex;
-    margin: 0 auto;
-    max-width: 1440px;
-    position: relative;
+    @include mq("pc") {
+      align-items: flex-end;
+      display: flex;
+      max-width: 1440px;
+      margin: 0 auto;
+      position: relative;
+    }
     &--reverse {
-      flex-direction: row-reverse;
+      @include mq("pc") {
+        flex-direction: row-reverse;
+      }
+      .about__item {
+        @include mq("sp") {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+      }
     }
     &:nth-of-type(n+2) {
       margin-top: 100px;
+      @include mq("sp") {
+        margin-top: 30px;
+      }
     }
   }
   &__item {
-    width: 65%;
+    @include mq("pc") {
+      width: 65%;
+    }
   }
   &__img {
-    max-width: 950px;
     width: 100%;
+    @include mq("pc") {
+      max-width: 950px;
+    }
   }
   &__content {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    bottom: -10px;
-    padding: 60px;
-    position: absolute;
-    right: 0;
-    width: 555px;
+    @include mq("pc") {
+      bottom: -10px;
+      padding: 60px;
+      position: absolute;
+      right: 0;
+      width: 555px;
+    }
+    @include mq("sp") {
+      margin: -10px 20px 0;
+      padding: 40px 30px 30px;
+      position: relative;
+    }
     &--reverse {
       right: inherit;
       left: 0;
@@ -162,10 +233,17 @@
     &--eng {
       color: $accent-colour;
       font-size: rem(24);
+      @include mq("sp") {
+        font-size: rem(18);
+      }
     }
     &--jp {
       font-size: rem(32);
       margin-top: 25px;
+      @include mq("sp") {
+        font-size: rem(22);
+        margin-top: 20px;
+      }
     }
     &--green {
       color: #00B21B;
@@ -176,6 +254,10 @@
     font-feature-settings: "palt";
     line-height: 2;
     margin-top: 20px;
+    @include mq("sp") {
+      font-size: rem(14);
+      margin-top: 15px;
+    }
   }
   &__btn {
     background-color: $accent-colour;
@@ -194,12 +276,18 @@
         opacity: 0.85;
       }
     }
+    @include mq("sp") {
+      margin: 40px auto 0;
+    }
   }
 }
 
 // trainer
 .trainer {
   margin-top: 50px;
+  @include mq("sp") {
+    margin-top: 40px;
+  }
   &__wave {
     &--top {
       transform: translateY(6px);
@@ -208,6 +296,9 @@
   &__inner {
     background-color: $accent-colour;
     padding: 25px 0 45px;
+    @include mq("sp") {
+      padding: 45px 30px 40px;
+    }
   }
   &__head, &__body {
     margin: 0 auto;
@@ -218,9 +309,15 @@
       color: #fff;
       font-size: rem(64);
       font-weight: normal;
+      @include mq("sp") {
+        font-size: rem(40);
+      }
     }
     &--jp {
       color: #fff;
+      @include mq("sp") {
+        font-size: rem(14);
+      }
     }
   }
 }
@@ -238,19 +335,33 @@
     list-style: none;
     text-align: center;
     padding: 18px 0;
+    @include mq("sp") {
+      margin-top: 30px;
+      padding: 10px 0;
+    }
     &--active {
       border-bottom: 2px solid #fff;
     }
   }
   &__body {
-    display: flex;
-    justify-content: space-between;
-    gap: 0 15px;
+    @include mq("pc") {
+      display: flex;
+      justify-content: space-between;
+      gap: 0 15px;
+    }
+    @include mq("sp") {
+      margin-top: 20px;
+    }
   }
   &__item {
     display: flex;
     flex: 1;
     flex-direction: column;
+    @include mq("sp") {
+      &:not(:last-of-type) {
+        margin-bottom: 15px;
+      }
+    }
   }
   &__img {
     border-radius: 10px 10px 0 0;
@@ -264,6 +375,9 @@
     font-feature-settings: "palt";
     height: 100%;
     padding: 20px;
+    @include mq("sp") {
+      font-size: rem(14);
+    }
   }
 }
 
@@ -271,22 +385,37 @@
 .studio {
   &__inner {
     margin: 60px auto 0;
-    max-width: 1100px;
+    @include mq("pc") {
+      max-width: 1100px;
+    }
+    @include mq("sp") {
+      margin: 40px 30px 0;
+    }
   }
   &__ttl {
     &--en {
       color: #000;
       font-size: rem(64);
       font-weight: normal;
+      @include mq("sp") {
+        font-size: rem(40);
+      }
     }
     &--jp {
       color: $accent-colour;
+      font-weight: bold;
+      @include mq("sp") {
+        font-size: rem(14);
+      }
     }
   }
 }
 
 // スライダー（splide）
 .splide {
+  @include mq("sp") {
+    margin-top: 30px;
+  }
   &__img {
     height: 100%;
     width: 100%;
@@ -298,6 +427,11 @@
       height: 60px!important;
       opacity: 1!important;
       width: 60px!important;
+      @include mq("sp") {
+        background-size: 40px!important;
+        height: 40px!important;
+        width: 40px!important;
+      }
     }
     &--next {
       background: url(../../../dist/img/next_btn.png)!important;
@@ -305,6 +439,11 @@
       opacity: 1!important;
       right: -2rem!important;
       width: 60px!important;
+      @include mq("sp") {
+        background-size: 40px!important;
+        height: 40px!important;
+        width: 40px!important;
+      }
     }
     svg {
       display: none;
@@ -337,21 +476,39 @@
     margin: 0 auto;
     max-width: 1100px;
   }
+  &__head {
+    @include mq("sp") {
+      padding: 0 30px;
+    }
+  }
   &__ttl {
     &--en {
       color: #fff;
       font-size: rem(64);
+      @include mq("sp") {
+        font-size: rem(40);
+        font-weight: normal;
+      }
     }
     &--jp {
       color: #fff;
       font-size: rem(20);
       margin-top: 20px;
+      @include mq("sp") {
+        font-size: rem(14);
+        margin-top: 5px;
+      }
     }
   }
   &__list {
     display: flex;
     gap: 0 15px;
     margin-top: 30px;
+    padding: 20px 0;
+    @include mq("sp") {
+      margin-top: 10px;
+      padding: 20px;
+    }
   }
   &__box {
     background-color: #fff;
@@ -362,6 +519,9 @@
 }
 .plan {
   text-align: center;
+  @include mq("sp") {
+    min-width: 280px;
+  }
   &__course {
     color: $accent-colour;
     font-size: rem(26);
@@ -405,18 +565,29 @@
 // FAQ
 .faq {
   &__inner {
-    max-width: 1100px;
-    margin: 0 auto;
+    @include mq("pc") {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @include mq("sp") {
+      padding: 0 30px;
+    }
   }
   &__ttl {
     &--en {
       font-size: rem(64);
       font-weight: normal;
+      @include mq("sp") {
+        font-size: rem(40);
+      }
     }
     &--jp {
       font-size: rem(20);
       font-weight: bold;
       color: $accent-colour;
+      @include mq("sp") {
+        font-size: rem(14);
+      }
     }
   }
 }
@@ -452,6 +623,16 @@
     font-family: $font-en;
     color: $accent-colour;
     margin-right: 15px;
+    @include mq("sp") {
+      margin-top: -5px;
+    }
+  }
+  &__txt {
+    @include mq("sp") {
+      align-items: flex-start;
+      display: flex;
+      padding-top: 12px;
+    }
   }
   &__body {
     display: none;
@@ -464,6 +645,10 @@
     background-color: $accent-colour;
     margin-top: 70px;
     padding-bottom: 50px;
+    @include mq("sp") {
+      margin-top: 50px;
+      padding-bottom: 30px;
+    }
   }
   &__thumbnail {
     &--01 {
@@ -478,6 +663,10 @@
     font-weight: normal;
     font-size: rem(64);
     text-align: center;
+    @include mq("sp") {
+      font-size: rem(26);
+      margin-top: 30px;
+    }
   }
   &__btn {
     background-color: #fff;
@@ -491,5 +680,10 @@
     text-align: center;
     text-decoration: none;
     width: fit-content;
+    @include mq("sp") {
+      font-size: rem(13);
+      padding: 17px 65px;
+      width: calc(100% - 76px);
+    }
   }
 }
