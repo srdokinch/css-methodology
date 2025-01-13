@@ -180,25 +180,44 @@ ol, ul, menu, summary {
   font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
-.fadeup--before {
+.fade-in {
   opacity: 0;
+  transform: translate(0, 0);
+  transition: all 1.5s;
+}
+.fade-in.fadein-bottom {
+  transform: translate(0, 30px);
+}
+.fade-in.scroll-in {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
 }
 
-.fadeup {
-  opacity: 0;
-  animation-name: fadeup-animation;
-  animation-duration: 0.8s;
-  animation-fill-mode: forwards;
+@keyframes bgSlide {
+  0% {
+    background-color: #EB51C2;
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  50% {
+    background-color: #EB51C2;
+    transform: translateX(0);
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 }
-
-@keyframes fadeup-animation {
+@keyframes txtFadeIn {
   0% {
     opacity: 0;
-    transform: translateY(40px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 .mv {
@@ -229,6 +248,9 @@ ol, ul, menu, summary {
   }
 }
 .mv__ttl {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
   font-size: 5.625rem;
   font-style: italic;
   font-weight: normal;
@@ -239,8 +261,23 @@ ol, ul, menu, summary {
     font-size: 2.625rem;
   }
 }
+.mv__ttl--bg {
+  overflow: hidden;
+  position: relative;
+}
+.mv__ttl--bg::before {
+  animation: bgSlide 1s forwards;
+  content: "";
+  height: 100%;
+  position: absolute;
+  transform: translateX(-100%);
+  width: 100%;
+  z-index: 10;
+}
 .mv__ttl--first, .mv__ttl--second {
+  animation: txtFadeIn 1s 0.6s forwards;
   background-color: #fff;
+  opacity: 0;
 }
 .mv__ttl--pink {
   color: #EB51C2;
@@ -305,8 +342,19 @@ ol, ul, menu, summary {
 }
 @media screen and (max-width: 768px) {
   .mv__img--01 {
-    margin-left: calc(100% - 266px);
+    margin-left: calc(100% - 264px);
     height: 410px;
+  }
+}
+.mv__img--fade-up {
+  animation: fadeUp 1.5s linear;
+}
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -319,7 +367,7 @@ ol, ul, menu, summary {
   font-size: 6.75rem;
   font-style: italic;
   text-align: center;
-  margin-top: 15px;
+  margin-top: -30px;
 }
 @media screen and (max-width: 768px) {
   .concept__ttl {
@@ -368,7 +416,7 @@ ol, ul, menu, summary {
   .about__box {
     align-items: flex-end;
     display: flex;
-    max-width: 1440px;
+    max-width: 1300px;
     margin: 0 auto;
     position: relative;
   }
@@ -561,6 +609,7 @@ ol, ul, menu, summary {
     display: flex;
     justify-content: space-between;
     gap: 0 15px;
+    margin-top: 20px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -630,10 +679,8 @@ ol, ul, menu, summary {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .splide {
-    margin-top: 30px;
-  }
+.splide {
+  margin-top: 30px;
 }
 .splide__img {
   height: 100%;
@@ -723,7 +770,7 @@ ol, ul, menu, summary {
 .price__list {
   display: flex;
   gap: 0 15px;
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 20px 0;
 }
 @media screen and (max-width: 768px) {

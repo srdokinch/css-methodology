@@ -9,26 +9,47 @@
   font-family: $font-jp;
 }
 
-.fadeup--before {
+.fade-in {
   opacity: 0;
+  transform: translate(0,0);
+  transition: all 1.5s;
+  &.fadein-bottom{
+    transform: translate(0,30px);
+  }
+  &.scroll-in{
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+  }
 }
 
-.fadeup {
-  opacity: 0;
-  animation-name: fadeup-animation;
-  animation-duration: 0.8s;
-  animation-fill-mode: forwards;
+@keyframes bgSlide {
+  0% {
+    background-color: $accent-colour;
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  50% {
+    background-color: $accent-colour;
+    transform: translateX(0);
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 }
-@keyframes fadeup-animation {
+@keyframes txtFadeIn {
   0% {
     opacity: 0;
-    transform: translateY(40px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
+
 
 // MV
 .mv {
@@ -52,6 +73,9 @@
     }
   }
   &__ttl {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
     font-size: rem(90);
     font-style: italic;
     font-weight: normal;
@@ -59,8 +83,23 @@
     @include mq("sp") {
       font-size: rem(42);
     }
+    &--bg {
+      overflow: hidden;
+      position: relative;
+      &::before {
+        animation: bgSlide 1s forwards;
+        content: '';
+        height: 100%;
+        position: absolute;
+        transform: translateX(-100%);
+        width: 100%;
+        z-index: 10;
+      }
+    }
     &--first, &--second {
+      animation: txtFadeIn 1s .6s forwards;
       background-color: #fff;
+      opacity: 0;
     }
     &--pink {
       color: $accent-colour;
@@ -115,8 +154,19 @@
         z-index: -10;
       }
       @include mq("sp") {
-        margin-left: calc(100% - 266px);
+        margin-left: calc(100% - 264px);
         height: 410px;
+      }
+    }
+    &--fade-up {
+      animation: fadeUp 1.5s linear;
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
       }
     }
   }
@@ -131,7 +181,7 @@
     font-size: rem(108);
     font-style: italic;
     text-align: center;
-    margin-top: 15px;
+    margin-top: -30px;
     @include mq("sp") {
       font-size: rem(56);
       margin-top: -22px;
@@ -175,7 +225,7 @@
     @include mq("pc") {
       align-items: flex-end;
       display: flex;
-      max-width: 1440px;
+      max-width: 1300px;
       margin: 0 auto;
       position: relative;
     }
@@ -348,6 +398,7 @@
       display: flex;
       justify-content: space-between;
       gap: 0 15px;
+      margin-top: 20px;
     }
     @include mq("sp") {
       margin-top: 20px;
@@ -413,9 +464,7 @@
 
 // スライダー（splide）
 .splide {
-  @include mq("sp") {
-    margin-top: 30px;
-  }
+  margin-top: 30px;
   &__img {
     height: 100%;
     width: 100%;
@@ -503,7 +552,7 @@
   &__list {
     display: flex;
     gap: 0 15px;
-    margin-top: 30px;
+    margin-top: 10px;
     padding: 20px 0;
     @include mq("sp") {
       margin-top: 10px;

@@ -18,20 +18,6 @@ $(function () {
     }
   });
 
-  //スクロールエフェクト
-  function fadeUpEffect() {
-		$('.fadeup--before').each(function () {
-			const position = $(this).offset().top + 200;
-			const scroll = $(window).scrollTop();
-			const windowHeight = $(window).height();
-			if (scroll >= position - windowHeight) {
-				$(this).addClass('fadeup');
-			}
-		});
-  }
-  $(window).scroll(function() {
-		fadeUpEffect();
-  });
 
   //FAQのアコーディオン
   $('.accordion__head').on('click', function(){
@@ -44,6 +30,19 @@ $(function () {
     i18n: {
       scrollable: "スクロールできます",
     },
+  });
+
+  // フェードイン
+  $(window).scroll(function (){
+    $('.fade-in').each(function(){
+      var elemPos = $(this).offset().top,
+      scroll = $(window).scrollTop(),
+      windowHeight = $(window).height();
+  
+        if (scroll > elemPos - windowHeight + 150){
+          $(this).addClass('scroll-in');
+        }
+    });
   });
 
 });
